@@ -1,11 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  {{ client_ip }}
-</body>
-</html>
+{% extends "base.html" %}
+{% block page %}Analyze{% endblock %}
+{% block contents %}
+<div class="py-4 text-center">
+    <div class="w-25 d-inline-block">
+        <img class="mb-4 mw-100" src="/assets/logo.png">
+    </div>
+    <h2>Flask ML</h2>
+    <p class="lead">
+        Upload an image here to have it analyzed by the server!
+    </p>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col col-lg-8">
+        <form class="card p-2">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Upload</span>
+                </div>
+                <div class="custom-file">
+                    <input onchange="displayFilePreview(this)" type="file" accept="image/png, image/jpeg" class="custom-file-input" id="fileInput">
+                    <label class="custom-file-label" for="fileInput">Choose file</label>
+                </div>
+            </div>
+            <img id="preview" style="max-height: 30vh;object-fit: scale-down;" />
+        </form>
+        <button disabled id="submit" class="btn btn-primary mt-1 w-100 hidden">Analyze</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script>
+    // TODO: no #submit.click post form. Waiting for API.
+
+    function displayFilePreview(input) {
+        const file = input.files && input.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#preview')
+                    .attr('src', e.target.result)
+                    .addClass('mt-2')
+                    .addClass('mb-2')
+                $('.custom-file-label').text(file.name)
+                $('#submit').attr('disabled', false)
+                disabled
+            };
+
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+{% endblock %}
