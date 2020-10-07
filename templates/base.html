@@ -1,0 +1,39 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+{% block page %}{% endblock %} - Flask ML
+{% endblock %}
+
+{% block head %}
+{{super()}}
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<style>
+    body,
+    .sticky-footer-wrapper {
+        min-height: 100vh;
+    }
+
+    .flex-fill {
+        flex: 1 1 auto;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column sticky-footer-wrapper">
+    <div class="container flex-fill">
+        {% block contents %}{% endblock %}
+    </div>
+    <footer id="sticky-footer" class="footer navbar-fixed-bottom pt-5 text-muted text-center text-small">
+        <p class="mb-1">© 2020-2021 Flask ML</p>
+        <ul class="list-inline">
+            {# TODO: open model define Privacy/Terms  #}
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item">
+                <a target="_blank" href="https://github.com/MLH-Fellowship/Flask-ML">GitHub</a>
+            </li>
+        </ul>
+    </footer>
+</div>
+{% endblock %}
