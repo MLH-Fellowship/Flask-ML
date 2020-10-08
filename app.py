@@ -9,21 +9,26 @@ UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads')
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 UPLOAD_FORM_IMAGE_PARAM = 'image'
 
+
 app = Flask(__name__)
 Bootstrap(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
 @app.route('/assets/<path:path>')
 def send_js(path):
     return send_from_directory('assets', path)
 
+
 @app.route('/')
 def hello():
     return render_template('index.html', client_ip=request.remote_addr)
+
 
 @app.route('/upload-file', methods=['POST', 'GET'])
 def upload_file():
