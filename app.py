@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads')
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
-APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_FORM_IMAGE_PARAM = 'image'
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -34,10 +34,11 @@ def upload_file():
         os.mkdir(target)
 
     if request.method == 'POST':
-        if 'file' not in request.files:
+        if UPLOAD_FORM_IMAGE_PARAM not in request.files:
             # flash('No file part')
             return redirect(request.url)
-        file = request.files['file']
+
+        file = request.files[UPLOAD_FORM_IMAGE_PARAM]
         # if user does not select file, browser also
         # submit an empty part without filename
         if file.filename == '':
