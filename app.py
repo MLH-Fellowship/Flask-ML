@@ -4,7 +4,8 @@ from flask_bootstrap import Bootstrap
 
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/uploads'
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads')
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
