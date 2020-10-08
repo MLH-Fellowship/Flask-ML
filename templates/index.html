@@ -13,19 +13,19 @@
 
 <div class="row justify-content-center">
     <div class="col col-lg-8">
-        <form class="card p-2">
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_file') }}" class="card p-2">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Upload</span>
                 </div>
                 <div class="custom-file">
-                    <input onchange="displayFilePreview(this)" type="file" accept="image/png, image/jpeg" class="custom-file-input" id="fileInput">
+                    <input name="image" onchange="displayFilePreview(this)" type="file" accept="image/png, image/jpeg" class="custom-file-input" id="fileInput">
                     <label class="custom-file-label" for="fileInput">Choose file</label>
                 </div>
             </div>
             <img id="preview" style="max-height: 30vh;object-fit: scale-down;" />
+            <button disabled id="submit" type="submit" class="btn btn-primary mt-1 w-100 hidden">Analyze</button>
         </form>
-        <button disabled id="submit" class="btn btn-primary mt-1 w-100 hidden">Analyze</button>
     </div>
 </div>
 {% endblock %}
