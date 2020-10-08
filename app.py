@@ -25,7 +25,7 @@ def send_js(path):
 
 @app.route('/')
 def hello():
-    return render_template('index.html', client_ip=request.remote_addr)
+    return render_template('index.html')
 
 
 @app.route('/upload-file', methods=['POST', 'GET'])
@@ -55,7 +55,7 @@ def upload_file():
             # TODO: Need to integrate with @Yida's BentoML Services
 
             return redirect('/upload-file')
-    return render_template('result.html', client_ip=request.remote_addr)
+    return render_template('result.html')
 
 
 if __name__ == '__main__':
