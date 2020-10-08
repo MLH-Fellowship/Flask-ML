@@ -9,7 +9,6 @@ ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 UPLOAD_FORM_IMAGE_PARAM = 'image'
 UPLOAD_DIR = os.path.join(APP_ROOT, 'uploads')
 
-
 app = Flask(__name__)
 Bootstrap(app)
 
