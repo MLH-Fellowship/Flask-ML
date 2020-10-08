@@ -133,3 +133,5 @@ dmypy.json
 .vscode/settings.json
 
 uploads/
+
+img_process_backend/data
