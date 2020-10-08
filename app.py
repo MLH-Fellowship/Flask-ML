@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 UPLOAD_FORM_IMAGE_PARAM = 'image'
-UPLOAD_DIR = os.path.join(APP_ROOT, 'upload')
+UPLOAD_DIR = os.path.join(APP_ROOT, 'uploads')
 
 
 app = Flask(__name__)
