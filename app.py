@@ -47,8 +47,7 @@ def upload_file():
         return redirect(request.url)
 
     filename = secure_filename(file.filename)
-    file.save(os.path.join(
-      , filename))
+    file.save(os.path.join(UPLOAD_DIR, filename))
 
     # TODO: Need to integrate with @Yida's BentoML Services
 
@@ -60,36 +59,6 @@ def app_setup():
 
     if not os.path.isdir(UPLOAD_DIR):
         os.mkdir(UPLOAD_DIR)
-
-
-@app.route('/upload-file', methods=['POST', 'GET'])
-def upload_file():
-    target = os.path.join(APP_ROOT, 'uploads/')
-
-    # If folder does not exist, mkdir the folder
-    if not os.path.isdir(target):
-        os.mkdir(target)
-
-    if request.method == 'POST':
-        if UPLOAD_FORM_IMAGE_PARAM not in request.files:
-            # flash('No file part')
-            return redirect(request.url)
-
-        file = request.files[UPLOAD_FORM_IMAGE_PARAM]
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            # flash('No selected file')
-            return redirect(request.url)
-
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(target, filename))
-
-            # TODO: Need to integrate with @Yida's BentoML Services
-
-            return redirect('/upload-file')
-    return render_template('result.html', client_ip=request.remote_addr)
 
 
 if __name__ == '__main__':
