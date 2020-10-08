@@ -9,6 +9,12 @@ verify_ssl = true
 flask = "*"
 jinja2 = "*"
 flask-bootstrap4 = "*"
+torch = "*"
+torchvision = "*"
+matplotlib = "*"
+numpy = "*"
+bentoml = "*"
+scikit-learn = "*"
 
 [requires]
 python_version = "3.7"
