@@ -1,0 +1,6 @@
+name: bentoml-default-conda-env
+channels:
+- conda-forge
+- defaults
+dependencies:
+- pip

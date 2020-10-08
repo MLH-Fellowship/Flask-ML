@@ -1,0 +1,2 @@
+include PytorchImageClassifier/bentoml.yml
+graft PytorchImageClassifier/artifacts
