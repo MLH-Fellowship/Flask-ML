@@ -5,14 +5,12 @@ from flask_bootstrap import Bootstrap
 from werkzeug.utils import secure_filename
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads')
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 UPLOAD_FORM_IMAGE_PARAM = 'image'
 
 
 app = Flask(__name__)
 Bootstrap(app)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 def allowed_file(filename):
@@ -52,7 +50,7 @@ def upload_file():
 
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join(target, filename))
 
             # TODO: Need to integrate with @Yida's BentoML Services
 
