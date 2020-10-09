@@ -1,0 +1,2 @@
+include PytorchImageSegment/bentoml.yml
+graft PytorchImageSegment/artifacts
