@@ -4,6 +4,7 @@ from PIL import Image
 import torch
 from torch.autograd import Variable
 from torchvision import transforms
+import matplotlib.pyplot as plt
 
 import bentoml
 from bentoml.frameworks.pytorch import PytorchModelArtifact
@@ -47,10 +48,17 @@ class PytorchImageSegment(bentoml.BentoService):
             output = self.artifacts.net(Variable(torch.stack(input_datas)))['out'][0]
         output_predictions = output.argmax(0)
 
-        """
-        outputs = self.artifacts.net(Variable(torch.stack(input_datas)))
-        _, output_classes = outputs.max(dim=1)
-        """
+        # create a color pallette, selecting a color for each class
+        palette = torch.tensor([2 ** 25 - 1, 2 ** 15 - 1, 2 ** 21 - 1])
+        colors = torch.as_tensor([i for i in range(21)])[:, None] * palette
+        colors = (colors % 255).numpy().astype("uint8")
+
+        # plot the semantic segmentation predictions of 21 classes in each color
+        r = Image.fromarray(output_predictions.byte().cpu().numpy()).resize(img.size)
+        r.putpalette(colors)
+
+        plt.imshow(r)
+        plt.imsave('./images/result_seg.png', r)
 
         # return [classes[output_class] for output_class in output_classes]
         return output_predictions

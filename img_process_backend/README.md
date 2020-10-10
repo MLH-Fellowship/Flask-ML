@@ -35,4 +35,9 @@ Such BentoML package for image classfication is already placed in `bentoml_packa
 bentoml run PytorchImageSegment:latest predict  --input-file=dog.jpg
 ```
 The predicted result would look like followings:
-![](./dog.jpg) ![](result_seg.png)
+| Input image | Estimated segment |
+:-------------------------:|:-------------------------:
+ <img src="images/dog.jpg" alt="road condition" frameborder="0" style="border:0" > | <img src="images/dog_seg.png" alt="road condition" frameborder="0" style="border:0" >
+ <img src="images/people.jpg" alt="road condition" frameborder="0" style="border:0" > | <img src="images/people_seg.png" alt="road condition" frameborder="0" style="border:0" >
+ <img src="images/street.jpg" alt="road condition" frameborder="0" style="border:0" > | <img src="images/street_seg.png" alt="road condition" frameborder="0" style="border:0" >
+ <img src="images/pig.jpg" alt="road condition" frameborder="0" style="border:0" > | <img src="images/pig_seg.png" alt="road condition" frameborder="0" style="border:0" >
