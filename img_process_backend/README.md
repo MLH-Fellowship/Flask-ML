@@ -29,10 +29,36 @@ For sake of a good demo, I believe that we need the segmentation as richer API, 
 ```python
 python3 bentoml_img_segment.py
 ```
+Then a new folder containing all bentoML services like:
+```
+/Users/yidawang/bentoml/repository/PytorchImageSegment/20201010015248_3360B3
+├── Dockerfile
+├── MANIFEST.in
+├── PytorchImageSegment
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   └── pytorch_image_segment.cpython-37.pyc
+│   ├── artifacts
+│   │   ├── __init__.py
+│   │   └── net.pt
+│   ├── bentoml.yml
+│   └── pytorch_image_segment.py
+├── README.md
+├── bentoml-init.sh
+├── bentoml.yml
+├── docker-entrypoint.sh
+├── environment.yml
+├── python_version
+├── requirements.txt
+└── setup.py
+```
 
 Such BentoML package for image classfication is already placed in `bentoml_package_seg` folder, you can execute it with 
 ```bash
-bentoml run PytorchImageSegment:latest predict  --input-file=dog.jpg
+bentoml run PytorchImageSegment:latest predict  --input-file=images/trees.jpg
+bentoml run PytorchImageSegment:latest predict  --input-file=images/street.jpg
+bentoml run PytorchImageSegment:latest predict  --input-file=images/pig.jpg
+bentoml run PytorchImageSegment:latest predict  --input-file=images/dog.jpg
 ```
 The predicted result would look like followings:
 | Input image | Estimated segment |
