@@ -52,7 +52,7 @@ r.putpalette(colors)
 
 import matplotlib.pyplot as plt
 plt.imshow(r)
-plt.imsave('./result_seg.png', r)
+plt.imsave('../assets/segmentingData/result_seg.png', r)
 # plt.show()
 
 

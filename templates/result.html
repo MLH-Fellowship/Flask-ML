@@ -1,1 +1,19 @@
-<h3>Upload complete</h3>
+{% extends "base.html" %}
+
+{% block page %} Result {% endblock %}
+
+{% block contents %}
+<div class="py-4 text-center">
+    <div class="w-25 d-inline-block">
+        <img class="mb-4 mw-100" src="/assets/logo.png">
+    </div>
+    <h2>Image Result</h2>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col col-lg-8">
+      <img id="upload-image" style="max-height: 30vh;object-fit: scale-down;" src="/assets/dog.jpg"/>
+      <img id="analyzed-image" style="max-height: 30vh;object-fit: scale-down;" src="/assets/result_seg.png"/>
+    </div>
+</div>
+{% endblock %}
