@@ -1,8 +1,6 @@
 # Targeted tasks
 Many real world application like traffic inspection depends on instence-level segmentation and identification which is shown as below using our offline video processing model of Mask-RCNN.
-| Observation | Object detection |
-:-------------------------:|:-------------------------:
- <img src="videos/3.gif" alt="road condition" frameborder="0" style="border:0" > | <img src="videos/3_result.gif" alt="road condition" frameborder="0" style="border:0" >
+ <img src="videos/3_result.gif" alt="road condition" frameborder="0" style="border:0" >
 
 As the backbone of instance-level object detection, image segmentation plays an important role to judge whether an algorithm works well for both accuracy and efficiency.
 Image segmentation is the process of dividing an image into different regions based on the characteristics of pixels to identify objects or boundaries to simplify an image and more efficiently analyze it. Segmentation impacts a number of domains, from the filmmaking industry to the field of medicine. For instance, the software behind green screens implements image segmentation to crop out the foreground and place it on a background for scenes that cannot be shot or would be dangerous to shoot in real life. Image segmentation is also used to track objects in a sequence of images and to classify terrains, like petroleum reserves, in satellite images. Some medical applications of segmentation include the identification of injured muscle, the measurement of bone and tissue, and the detection of suspicious structures to aid radiologists (Computer Aided Diagnosis, or CAD).
