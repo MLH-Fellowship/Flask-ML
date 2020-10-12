@@ -4,7 +4,7 @@ from flask_bootstrap import Bootstrap
 from flask_caching import Cache
 from werkzeug.utils import secure_filename
 import requests
-from subprocess import Popen
+from subprocess import Popen, DEVNULL
 from uuid import uuid4
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -73,7 +73,7 @@ def upload_file():
     pid = str(uuid4())
 
     process = Popen(['bentoml', 'run', 'PytorchImageSegment:latest',
-                     'predict',  f'--input-file={absolute_filepath}'], cwd=os.path.join(APP_ROOT, 'img_process_backend'))
+                     'predict',  f'--input-file={absolute_filepath}'], cwd=os.path.join(APP_ROOT, 'img_process_backend'), stdout=DEVNULL)
 
     tasks[pid] = {
         'filename': filename,
