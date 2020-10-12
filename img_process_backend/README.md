@@ -74,5 +74,5 @@ The predicted result would look like followings:
 # Flexible model choices
 To balance the inference speed and estimation accuracy, different models could be served as segmentation backends, such as [DEEPLABV3-RESNET101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) and [FCN-RESNET101](https://pytorch.org/hub/pytorch_vision_fcn_resnet101/)
 | Input image | FCN-RESNET101 | DEEPLABV3-RESNET101 |
-:-------------------------:|:-------------------------:
+:-------------------------:|:-------------------------:|:-------------------------:
  <img src="images/models/deeplab1.png" alt="road condition" frameborder="0" style="border:0" > | <img src="images/models/fcn_resnet101.png" alt="road condition" frameborder="0" style="border:0" > | <img src="images/models/resnet101.png" alt="road condition" frameborder="0" style="border:0" >
