@@ -50,18 +50,15 @@ def hello():
 # @cache.cached(timeout=300)  # cache this image result for 5 minutes
 def upload_file():
     if UPLOAD_FORM_IMAGE_PARAM not in request.files:
-        print('redirect 1')
         return redirect(request.url)
 
     file = request.files[UPLOAD_FORM_IMAGE_PARAM]
 
     # if user does not select file, browser also submit an empty part without filename
     if file.filename == '':
-        print('redirect 2')
         return redirect(request.url)
 
     if not file or not allowed_file(file.filename):
-        print('redirect 3')
         return redirect(request.url)
 
     filename = secure_filename(file.filename)
@@ -99,12 +96,9 @@ def get_results(pid):
     # !Ping the client when it's done
 
     if process.poll() is None:
-        print('running')
         return jsonify({
             'running': True
         })
-    else:
-        print('done')
         return jsonify({
             'running': False,
             'html': render_template('result.html', input_file=os.path.join(WEB_REL_UPLOAD_DIR, task['filename']), result_file=f'/assets/segmentingData/{task["filename"]}')
