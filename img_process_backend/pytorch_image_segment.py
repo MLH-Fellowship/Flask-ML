@@ -35,7 +35,7 @@ class PytorchImageSegment(bentoml.BentoService):
             img = Image.open(fs).resize((32, 32))
             input_datas.append(self.transform(img))
             """
-            img = Image.open(fs)
+            img = Image.open(fs).convert("RGB")
             from torchvision import transforms
             preprocess = transforms.Compose([
                 transforms.ToTensor(),
