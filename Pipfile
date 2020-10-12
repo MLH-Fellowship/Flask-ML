@@ -15,6 +15,6 @@ matplotlib = "*"
 numpy = "*"
 bentoml = "*"
 scikit-learn = "*"
-
+flask-caching = "*"
 [requires]
 python_version = "3.7"
