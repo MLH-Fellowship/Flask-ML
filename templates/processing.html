@@ -17,9 +17,6 @@
 {% block scripts %}
 {{super()}}
 <script>
-    // TODO: no #submit.click post form. Waiting for API.
-
-
     const interval = setInterval(() => {
         fetch('/get-results/{{ pid }}').then(r => r.json()).then(data => {
             $('h2').text('ML Results');
