@@ -99,10 +99,11 @@ def get_results(pid):
         return jsonify({
             'running': True
         })
-        return jsonify({
-            'running': False,
-            'html': render_template('result.html', input_file=os.path.join(WEB_REL_UPLOAD_DIR, task['filename']), result_file=f'/assets/segmentingData/{task["filename"]}')
-        })
+
+    return jsonify({
+        'running': False,
+        'html': render_template('result.html', input_file=os.path.join(WEB_REL_UPLOAD_DIR, task['filename']), result_file=f'/assets/segmentingData/{task["filename"]}')
+    })
 
 
 if __name__ == '__main__':
