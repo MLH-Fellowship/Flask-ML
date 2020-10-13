@@ -19,10 +19,9 @@
 <script>
     const interval = setInterval(() => {
         fetch('/get-results/{{ pid }}').then(r => r.json()).then(data => {
+            if (data.running) return;
+
             $('h2').text('ML Results');
-            if (data.running) {
-                return;
-            }
             $('#results').html(data.html)
             return clearInterval(interval)
         })
