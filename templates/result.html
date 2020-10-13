@@ -1,6 +1,43 @@
-<div class="row justify-content-center">
-    <div class="col col-lg-8">
-        <img id="upload-image" style="max-height: 30vh;object-fit: scale-down;" src="{{ input_file }}" />
+{% if in_cache %}
+    {% extends "base.html" %}
+    {% block page %}Result{% endblock %}
+    {% block contents %}
+    <div class="py-4 text-center">
+        <div class="w-25 d-inline-block">
+            <div role="status">
+                <a href="/"><img class="mb-4 mw-100" src="/assets/logo.png" ></a>
+            </div>
+        </div>
+        <h2>ML Result: </h2>
+        <div class="row justify-content-center">
+            <img id="upload-image" style="max-height: 30vh;object-fit: scale-down;" src="{{ input_file }}" />
+        </div>
+        <br/>
+        <br/>
+
+        <h3>Image Segmentation: </h3>
         <img id="analyzed-image" style="max-height: 30vh;object-fit: scale-down;" src="{{ result_file }}" />
+
+        <br/>
+        <br/>
+
+        <a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="{{ result_file }}" download>Download Result</a>
     </div>
-</div>
+    {% endblock %}
+
+{% else %}
+    <div class="row justify-content-center">
+        <img id="upload-image" style="max-height: 30vh;object-fit: scale-down;" src="{{ input_file }}" />
+    </div>
+    <br/>
+    <br/>
+
+    <h3>Image Segmentation: </h3>
+    <img id="analyzed-image" style="max-height: 30vh;object-fit: scale-down;" src="{{ result_file }}" />
+
+    <br/>
+    <br/>
+
+    <a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="{{ result_file }}" download>Download Result</a>
+
+{% endif %}
