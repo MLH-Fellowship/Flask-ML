@@ -65,7 +65,7 @@ class Net(nn.Module):
         x = F.relu(self.fc2(x))
         x = self.fc3(x)
         return x
-    
+
 net = Net()
 
 import torch.optim as optim

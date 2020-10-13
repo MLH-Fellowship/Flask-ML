@@ -5,8 +5,8 @@
 {% block contents %}
 <div class="py-4 text-center">
     <div class="w-25 d-inline-block">
-        <div class="spinner-border" role="status">
-            <img class="mb-4 mw-100" src="/assets/logo.png">
+        <div id="spinner" class="spinner-border" role="status">
+            <a href="/"><img class="mb-4 mw-100" src="/assets/logo.png" ></a>
         </div>
     </div>
     <h2>Processing Image, please wait...</h2>
@@ -19,13 +19,14 @@
 <script>
     const interval = setInterval(() => {
         fetch('/get-results/{{ pid }}').then(r => r.json()).then(data => {
+            if (data.running) return;
+
             $('h2').text('ML Results');
-            if (data.running) {
-                return;
-            }
+            $('#spinner').removeClass();
             $('#results').html(data.html)
             return clearInterval(interval)
         })
-    }, 3000)
+    }, 5000)
+
 </script>
 {% endblock %}

@@ -16,14 +16,13 @@ classes = ('plane', 'car', 'bird', 'cat',
 @bentoml.env(pip_packages=['torch', 'numpy', 'torchvision', 'scikit-learn'])
 @bentoml.artifacts([PytorchModelArtifact('net')])
 class PytorchImageSegment(bentoml.BentoService):
-    
+
     @bentoml.utils.cached_property
     def transform(self):
         return transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ])
-    
     @bentoml.api(input=FileInput(), batch=True)
     def predict(self, file_streams: List[BinaryIO]) -> List[str]:
         input_datas = []
