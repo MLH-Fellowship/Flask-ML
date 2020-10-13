@@ -30,7 +30,8 @@ INFO - {'service_name': 'PytorchImageClassifier', 'service_version': '2020100819
 Now I successfullly package classification with BentoML, segmentation only works for running with Python rather than BentoML with packaged model.
 
 # Image segmentation
-For sake of a good demo, I believe that we need the segmentation as richer API, now it works with Python
+For sake of a good demo, I believe that we need the segmentation as richer API, now it works with Python.
+Firstly let's check how the utilized architecture looks like: ![ResNet](images/ResNet-101-feature-extraction.jpg)
 
 ```python
 python3 bentoml_img_segment.py
