@@ -1,6 +1,9 @@
 # Flask-ML
 Image and video processing from human perspectives are quite popular for artificial intelligence services like traffic inspection. Flask-ML grants any type of user (not only data scientist) an easy and compact UI Tool that supports BentoML to process images based on state-of-the-art machine learning approaches. It hides hardcore algorithm design and data preprocessing procedure into backend service which even annoys researchers a lot. 
- <img src="img_process_backend/videos/3_result.gif" alt="road condition" frameborder="0" style="border:0" >
+<img src="img_process_backend/videos/3_result.gif" alt="road condition" frameborder="0" style="border:0" >
+ 
+## Quick Demo 
+<img src="assets/ezgif.com-gif-maker.gif" alt="road condition" frameborder="0" style="border:0" >
 ## Requirement
 - Python 3.7
 - pipenv install: `pip3 install pipenv`
